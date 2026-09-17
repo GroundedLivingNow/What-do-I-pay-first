@@ -1,0 +1,13 @@
+:root{--paper:#f4efe7;--card:#fffdf9;--ink:#28322f;--muted:#68716d;--line:#c9d0ca;--accent:#42665a;--soft:#dfe9e3;--warm:#eee2d3}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+.shell{width:min(760px,92%);margin:auto;padding:28px 0 44px}.brand{text-align:center;font-size:.82rem;font-weight:800;letter-spacing:.18em;margin-bottom:18px}
+.brand span{display:block;width:78px;height:2px;background:var(--accent);margin:10px auto}.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:clamp(22px,5vw,42px);box-shadow:0 10px 30px rgba(40,50,47,.07)}
+h1{font-size:clamp(2rem,7vw,3.35rem);line-height:1.03;margin:.1em 0 .35em}h2{font-size:clamp(1.4rem,5vw,2rem);line-height:1.15;margin:.25em 0 .55em}
+.lead{font-size:1.08rem;color:var(--muted)}.eyebrow{font-weight:800;letter-spacing:.09em;color:var(--accent);font-size:.78rem}.note{background:var(--warm);padding:14px 16px;border-radius:14px;margin:18px 0}
+label{font-weight:800;display:block;margin:17px 0 6px}input{width:100%;font:inherit;padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.options,.actions{display:grid;gap:10px;margin-top:20px}button{width:100%;border:1px solid var(--line);border-radius:13px;padding:15px 16px;background:#fff;color:var(--ink);font:inherit;font-weight:750;text-align:left;cursor:pointer}
+button:hover,button:focus-visible{border-color:var(--accent);background:var(--soft);outline:none}.primary{background:var(--accent);color:#fff;border-color:var(--accent);text-align:center}.secondary{text-align:center}
+.row{display:flex;gap:9px;align-items:center;margin:10px 0}.row input[type=checkbox]{width:22px;height:22px;flex:none}.row label{margin:0;font-weight:700}
+.bucket{margin:18px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden}.bucket h3{margin:0;padding:12px 14px;background:var(--soft)}.bucket div{padding:12px 14px}.bucket ul{margin:5px 0;padding-left:22px}
+.money{font-size:1.6rem;font-weight:850}.small{font-size:.9rem;color:var(--muted)}footer{font-size:.78rem;color:var(--muted);text-align:center;max-width:650px;margin:20px auto 0}footer p{margin:6px}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
