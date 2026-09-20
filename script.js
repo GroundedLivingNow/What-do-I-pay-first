@@ -17,28 +17,28 @@ const bills=[
  ["other","Something else","Other"]
 ];
 
-function top(){window.scrollTo({top:0,behavior:"smooth"})}
+function goTop(){window.scrollTo({top:0,behavior:"smooth"})}
 function home(){
  screen.innerHTML=`<div class="eyebrow">FREE INTERACTIVE TOOL</div>
  <h1>What Do I Pay First?</h1>
  <p class="lead">When there isn't enough money for everything, the goal isn't to be perfect. It's to protect the things that can hurt you fastest if they go unpaid.</p>
  <div class="note"><strong>This is a prioritizing tool—not a judgment.</strong><br>We're looking at what needs attention before your next income.</div>
  <button class="primary" onclick="money()">Start my priority check</button>`;
- top();
+ goTop();
 }
 function money(){
  screen.innerHTML=`<div class="eyebrow">STEP 1 OF 3</div><h2>What are we working with?</h2>
  <label for="cash">About how much money is available right now?</label><input id="cash" type="number" min="0" step=".01" placeholder="$0">
  <label for="nextPay">When is your next expected income?</label><input id="nextPay" type="date">
  <p class="small">An estimate is fine. This tool doesn't save or send what you enter.</p>
- <div class="actions"><button class="primary" onclick="saveMoney()">Next</button><button class="secondary" onclick="home()">← Start over</button></div>`;top();
+ <div class="actions"><button class="primary" onclick="saveMoney()">Next</button><button class="secondary" onclick="home()">← Start over</button></div>`;goTop();
 }
 function saveMoney(){state.cash=Math.max(0,Number(document.getElementById("cash").value)||0);state.nextPay=document.getElementById("nextPay").value;pickBills()}
 function pickBills(){
  screen.innerHTML=`<div class="eyebrow">STEP 2 OF 3</div><h2>What needs money before your next income?</h2>
  <p class="lead">Check everything that applies. We'll sort the list next.</p>
  <div>${bills.map(([id,label])=>`<div class="row"><input id="${id}" type="checkbox"><label for="${id}">${label}</label></div>`).join("")}</div>
- <div class="actions"><button class="primary" onclick="saveBills()">Sort my priorities</button><button class="secondary" onclick="money()">← Back</button></div>`;top();
+ <div class="actions"><button class="primary" onclick="saveBills()">Sort my priorities</button><button class="secondary" onclick="money()">← Back</button></div>`;goTop();
 }
 function saveBills(){state.selected=bills.filter(([id])=>document.getElementById(id).checked).map(x=>x[0]);results()}
 function item(id){return bills.find(x=>x[0]===id)?.[1]||id}
@@ -57,6 +57,6 @@ function results(){
  ${other.length?`<div class="bucket"><h3>Needs your judgment</h3><div>${list(other)}<p class="small">Ask: What happens if this waits? Could it affect housing, safety, health, employment, required insurance, or another essential need?</p></div></div>`:""}
  <div class="note"><strong>Before you send money:</strong> get the exact due date and minimum needed to prevent the immediate consequence. If you can't cover an essential bill, contact the provider early and ask about extensions, payment arrangements, or assistance.</div>
  <h2>One next step</h2><p>Choose the highest-priority item on this page and get its exact amount and deadline. Don't solve the whole month yet.</p>
- <div class="actions"><button class="primary" onclick="home()">Run another priority check</button>${RESOURCE_LIBRARY_URL?`<a href="${RESOURCE_LIBRARY_URL}">More Grounded Living Now resources</a>`:""}</div>`;top();
+ <div class="actions"><button class="primary" onclick="home()">Run another priority check</button>${RESOURCE_LIBRARY_URL?`<a href="${RESOURCE_LIBRARY_URL}">More Grounded Living Now resources</a>`:""}</div>`;goTop();
 }
 home();
